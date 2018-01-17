@@ -21,7 +21,7 @@ Vue.component('fa-page',{
         pagegroup: {        // 分页条数 -- 奇数
             type: Number,
             default: 5,
-            coerce:function(v){
+            compute:function(v){
                 v = v > 0 ? v : 5;
                 return v % 2 === 1 ? v : v + 1;
             }
