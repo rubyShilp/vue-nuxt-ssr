@@ -29,7 +29,7 @@ module.exports={
         './app/pages/styles/main.less'
     ],
     env: {
-        baseUrl: process.env.BASE_URL || 'http://192.168.66.10:8083'
+        baseUrl: process.env.BASE_URL || 'http://127.0.0.1:8082'
     },
     proxy:[
         ['/api/', { target: 'http://172.18.2.241:8895' }]

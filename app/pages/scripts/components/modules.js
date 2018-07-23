@@ -1,4 +1,4 @@
-import loginModule from './login/loginModule';
+import loginModule from './login/loginModule.js';
 const modules = {
     loginModule:loginModule
 }
