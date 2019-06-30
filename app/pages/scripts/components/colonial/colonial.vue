@@ -1,6 +1,5 @@
 <template>
 <div>
-    <!--banner-->
     <no-ssr>
         <agile :navButtons="false" :dots='true' :speed="1000" :timing="'linear'" :infinite="true" :fade="true" :autoplay="true" :pauseOnHover="true">
             <div v-for="list of listImgs" :key="list">
@@ -8,56 +7,11 @@
             </div>
         </agile>
     </no-ssr>
-    <!--内容部分-->
     <div class="main">
         <!--移民国家-->
         <div class="product-info">
             <div class="wid-1180">
-                <h2 class="index-h2">热门项目<a href="javaScript:;" @click="selectUrl(2)" class="more">更多</a></h2>
-                <ul class="hot-items">
-                    <li>
-                        <a href="javaScript:;">
-                            <img src="./../../../images/2017102314295152.jpg" alt="移民英国">
-                            <h2>加拿大投资移民 2019名额抢占中</h2>
-                            <p>15万加币起，多省项目供选择 ，三大团队助力!</p>
-                            <p>价格：<b class="orange">15万加币起</b></p>
-                        </a>
-                        <div class="telphone">
-                            <a href="details.html" class="big-btn">查看详情</a>
-                            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2786876367&amp;site=ciya.cn&amp;menu=yes" class="big-btn">咨询</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="javaScript:;">
-                            <img src="./../../../images/2019031116090554.jpg" alt="移民英国">
-                            <h2>25万美元起，移居土耳其</h2>
-                            <p>25万美元买房或存款50万美元速获土耳其护照!</p>
-                            <p>价格：<b class="orange">25万美元起</b></p>
-                        </a>
-                        <div class="telphone">
-                            <a href="details.html" class="big-btn">查看详情</a>
-                            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2786876367&amp;site=ciya.cn&amp;menu=yes" class="big-btn">咨询</a>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="javaScript:;">
-                            <img src="./../../../images/2019022510440343.jpg" alt="移民英国">
-                            <h2>葡萄牙投资移民</h2>
-                            <p>仅需28万欧元起买房全家三代移民葡萄牙!</p>
-                            <p>价格：<b class="orange">28万欧元起</b></p>
-                        </a>
-                        <div class="telphone">
-                            <a href="details.html" class="big-btn">查看详情</a>
-                            <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2786876367&amp;site=ciya.cn&amp;menu=yes" class="big-btn">咨询</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!--移民国家-->
-        <div class="product-info bg-gray">
-            <div class="wid-1180">
-                <h2 class="index-h2">海外移民<a href="javaScript:;" @click="selectUrl(1)" class="more">更多</a></h2>
+                <h2 class="index-h2">海外移民</h2>
                 <ul class="application">
                     <li>
                         <a href="immigration-details.html">
@@ -174,55 +128,18 @@
                 </ul>
             </div>
         </div>
-        <!--联系我们-->
-        <div class="product-info">
-            <div class="wid-1180">
-                <h2 class="index-h2">私人订制</h2>
-                <ul class="custom-project">
-                    <li><input placeholder="您的姓名" /></li>
-                    <li><input placeholder="您的电话" /></li>
-                    <li><select name="message">
-                            <option value="null" disabled="" selected="">移民目的</option>
-                            <option value="子女教育">子女教育</option>
-                            <option value="应对CRS">应对CRS</option>
-                            <option value="养老规划">养老规划</option>
-                            <option value="出行便利">出行便利</option>
-                            <option value="海外置业">海外置业</option>
-                            <option value="居住环境">居住环境</option>
-                            <option value="投资理财">投资理财</option>
-                            <option value="福利保障">福利保障</option>
-                            <option value="税务规划">税务规划</option>
-                            <option value="工作就业">工作就业</option>
-                            <option value="创业经商">创业经商</option>
-                            <option value="资产保值">资产保值</option>
-                            <option value="其它">其它</option>
-                        </select></li>
-                    <li><select name="city">
-                            <option value="null" disabled="" selected="">移民国家</option>
-                            <option value="美国">美国</option>
-                            <option value="马耳他">马耳他</option>
-                            <option value="圣基茨和尼维斯">圣基茨和尼维斯</option>
-                            <option value="英国">英国</option>
-                            <option value="意大利">意大利</option>
-                            <option value="西班牙">西班牙</option>
-                            <option value="澳大利亚">澳大利亚</option>
-                            <option value="德国">德国</option>
-                            <option value="葡萄牙">葡萄牙</option>
-                            <option value="荷兰">荷兰</option>
-                            <option value="加拿大">加拿大</option>
-                            <option value="爱尔兰">爱尔兰</option>
-                            <option value="希腊">希腊</option>
-                            <option value="塞浦路斯">塞浦路斯</option>
-                            <option value="韩国">韩国</option>
-                        </select>
-                    </li>
-                    <li style="width:160px;">
-                        <a href="#" class="big-btn">获取私人订制方案</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
     </div>
 </div>
 </template>
-<script src="./index.js"></script>
+<script>
+export default {
+    data(){
+        return{
+            listImgs:[
+                require('./../../../images/banner.png'),
+                require('./../../../images/banner.png')
+              ]
+        }
+    }
+}
+</script>

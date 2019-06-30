@@ -1,12 +1,12 @@
 const resolve = require('path').resolve;
 module.exports={
     head:{
-        title:'法大大-提供电子合同文件签署及存证服务的电子合同/电子签名SaaS平台',
+        title:'嘉拓（深圳）投资有限公司',
         meta:[
             {charset:'UTF-8'},
             {hid: 'viewport',name:'viewport',content:'width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no'},
-            {hid: 'Description',name:'Description',content:'法大大是国内领先的电子合同、电子签名平台；法大大电子合同符合《电子签名法》相关规定，利用电子签名技术，确保合同合法有效，实现电子合同在线签署，电子合同在线编辑、电子合同管理等功能，同时整合提供司法鉴定、网络仲裁及律师服务。签合同就上法大大。'},
-            {hid: 'Keywords',name:'Keywords',content:'电子合同，电子签名，电子签章，电子签约，网上签订合同，法大大，在线签署，电子存证，电子文件签署，司法鉴定，SaaS平台'},
+            {hid: 'Description',name:'Description',content:'嘉拓（深圳）投资有限公司,承办各类移民，如美洲,欧洲,大洋洲,非洲等各类国家，移民就上嘉拓'},
+            {hid: 'Keywords',name:'Keywords',content:'海外房产项目，股权投资项目，等'},
             {hid: 'format-detection',name:'format-detection',content:'telephone=yes'},
             {'http-equiv':'pragma',content:'no-cache'},
             {'http-equiv':'cache-control',content:'no-cache'},
@@ -34,6 +34,10 @@ module.exports={
     proxy:[
         ['/api/', { target: 'http://172.18.2.241:8895' }]
     ],
+    plugins:[{
+        src:'pages/scripts/plugins/vue-plugins',
+        ssr:false
+    }],
     router:{
         scrollBehavior:(to, from, savedPosition)=>{
             return { x: 0, y: 0 }
@@ -42,8 +46,12 @@ module.exports={
             routes.push(
                 {path: '/', redirect: '/main/index'},
                 {name:'main',path:'/main',component:resolve(__dirname,'./app/pages/scripts/components/main.vue'),children:[
-                    {name:'/main/index',path:'/index',component:resolve(__dirname,'./app/pages/scripts/components/index/index.vue')},
-                    {name:'/main/about',path:'/about',component:resolve(__dirname,'./app/pages/scripts/components/about/about.vue')}
+                    {name:'index',path:'/main/index',component:resolve(__dirname,'./app/pages/scripts/components/index/index.vue')},
+                    {name:'colonial',path:'/main/colonial',component:resolve(__dirname,'./app/pages/scripts/components/colonial/colonial.vue')},
+                    {name:'hot',path:'/main/hot',component:resolve(__dirname,'./app/pages/scripts/components/hot/hot.vue')},
+                    {name:'jobs',path:'/main/jobs',component:resolve(__dirname,'./app/pages/scripts/components/jobs/jobs.vue')},
+                    {name:'about',path:'/main/about',component:resolve(__dirname,'./app/pages/scripts/components/about/about.vue')}
+                    
                 ]},
             )
         }
