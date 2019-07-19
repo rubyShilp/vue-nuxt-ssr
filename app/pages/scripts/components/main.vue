@@ -33,7 +33,6 @@ export default {
         }
     },
     mounted(){
-        console.log(sessionStorage.getItem('INDEX'));
         this.index=sessionStorage.getItem('INDEX');
     },
     methods:{

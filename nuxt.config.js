@@ -32,7 +32,7 @@ module.exports={
         baseUrl: process.env.BASE_URL || 'http://127.0.0.1:8082'
     },
     proxy:[
-        ['/api/', { target: 'http://172.18.2.241:8895' }]
+        ['/email/', { target: 'http://127.0.0.1:8083' }]
     ],
     plugins:[{
         src:'pages/scripts/plugins/vue-plugins',

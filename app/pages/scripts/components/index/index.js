@@ -1,13 +1,18 @@
+import axios from 'axios';
 export default {
   data(){
     return {
       listImgs:[
                 require('./../../../images/banner.png'),
                 require('./../../../images/banner.png')
-              ]
+              ],
+      sendMail:{name:'',mobile:'',objective:'',country:''},
+      isMessage:false,
+      message:''
     }
   },
   methods:{
+    //页面跳转
     selectUrl(type){
       if(type==1){
         sessionStorage.setItem('INDEX',2);
@@ -16,7 +21,48 @@ export default {
         sessionStorage.setItem('INDEX',3);
         this.$router.push('/main/hot');
       }
-     
+    },
+    //提示信息显示
+    setMessage(text){
+      this.isMessage=true;
+      this.message=text;
+      setTimeout(()=>{
+        this.isMessage=false;
+      },2000);
+    },
+    //判断是否为手机号
+    isMobile(val){
+        return /^(((13[0-9]{1})|(14[0-9]{1})|(15[0-9]{1})|(17[0-9]{1})|(18[0-9]{1}))+\d{8})$/.test(val);
+    },
+    //发送邮件
+    getSendMail(){
+      if(this.sendMail.name===''){
+        this.setMessage('请输入姓名!');
+        return;
+      }
+      if(this.sendMail.mobile===''){
+        this.setMessage('请输入电话号码！');
+        return;
+      }else if(!this.isMobile(this.sendMail.mobile)){
+        this.setMessage('电话号码格式不正确！');
+        return;
+      }
+      if(this.sendMail.objective===''){
+        this.setMessage('请选择移民目的！');
+        return;
+      }
+      if(this.sendMail.country===''){
+        this.setMessage('请选择移民国家！');
+        return;
+      }
+      axios.post('/email/send',this.sendMail,{headers:{'Content-Type':'application/json;charset=UTF-8'}}).then(res=>{
+          if(res.data.result==='success'){
+            this.setMessage(res.data.msg);
+            this.sendMail={name:'',mobile:'',objective:'',country:''};
+          }else{
+            this.setMessage(res.data.msg);
+          }
+      })
     }
   }
 }

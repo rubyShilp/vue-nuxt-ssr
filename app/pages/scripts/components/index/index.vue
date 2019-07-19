@@ -179,10 +179,10 @@
             <div class="wid-1180">
                 <h2 class="index-h2">私人订制</h2>
                 <ul class="custom-project">
-                    <li><input placeholder="您的姓名" /></li>
-                    <li><input placeholder="您的电话" /></li>
-                    <li><select name="message">
-                            <option value="null" disabled="" selected="">移民目的</option>
+                    <li><input placeholder="您的姓名" v-model="sendMail.name"/></li>
+                    <li><input placeholder="您的电话" v-model="sendMail.mobile"/></li>
+                    <li><select name="message" v-model="sendMail.objective">
+                            <option value="" disabled="" selected="">移民目的</option>
                             <option value="子女教育">子女教育</option>
                             <option value="应对CRS">应对CRS</option>
                             <option value="养老规划">养老规划</option>
@@ -195,10 +195,9 @@
                             <option value="工作就业">工作就业</option>
                             <option value="创业经商">创业经商</option>
                             <option value="资产保值">资产保值</option>
-                            <option value="其它">其它</option>
                         </select></li>
-                    <li><select name="city">
-                            <option value="null" disabled="" selected="">移民国家</option>
+                    <li><select name="city" v-model="sendMail.country">
+                            <option value="" disabled="" selected="">移民国家</option>
                             <option value="美国">美国</option>
                             <option value="马耳他">马耳他</option>
                             <option value="圣基茨和尼维斯">圣基茨和尼维斯</option>
@@ -217,11 +216,14 @@
                         </select>
                     </li>
                     <li style="width:160px;">
-                        <a href="#" class="big-btn">获取私人订制方案</a>
+                        <a href="javaScript:;" @click="getSendMail()" class="big-btn">获取私人订制方案</a>
                     </li>
                 </ul>
             </div>
         </div>
+    </div>
+    <div class="layerTips" v-if="isMessage">
+        <div class="layerTipsBox">{{message}}</div>
     </div>
 </div>
 </template>
